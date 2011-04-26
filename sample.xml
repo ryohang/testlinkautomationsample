@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="AutomationSample project in Testlink">
+   <test name="testng from testlink to hudson return TAP report" preserve-order="true">
+   		<classes>
+  		    <class name="com.webs.testlink.automationsample.SampleTestClass"/>
+ 		</classes>
+ 	 </test> 	
+</suite>

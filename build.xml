@@ -1,0 +1,47 @@
+<project name="Automation Sample" default="run" basedir=".">
+
+	
+	
+	<description>Automation Sample project</description>
+	<property name="lib.dir" location="lib"/>
+	<property name="build.output" location="target/classes"/>
+	<property name="build.src" location="src"/>
+	<taskdef resource="testngtasks" classpath="${lib.dir}/testng-5.14.3beta.jar" />
+	
+	<path id="compile.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="commons-io-2.0.1.jar"/>
+    	    <include name="commons-lang-2.6.jar"/>
+			<include name="snakeyaml-1.8.jar"/>
+			<include name="tap4j-1.4.4.jar"/>
+			<include name="testng-5.14.3beta.jar"/>
+		</fileset>
+		
+	</path>
+
+	<path id="runtime.classpath">
+		<path refid="compile.classpath" />
+		<pathelement path="${build.output}/" />
+	</path>
+	<target name="compile" description="compile the source ">
+	    <mkdir dir="${build.output}"/>
+	    <javac srcdir="${build.src}"
+	           destdir="${build.output}"
+		       executable="javac"
+	           debug="true"
+			   verbose="false" 
+			   fork="true"
+			   memoryinitialsize="256M" 
+	  	       memorymaximumsize="512M" >
+	      <classpath refid="compile.classpath"/>
+	    </javac>
+	</target>
+	
+	<target name="run" depends="compile" description="Run sample class">
+				<echo>${"start run"}</echo>
+				<testng classpathref="runtime.classpath" >		
+					<xmlfileset dir="." includes="sample.xml"/>
+			   </testng>	
+	</target>
+	
+</project>
