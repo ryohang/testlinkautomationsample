@@ -4,6 +4,10 @@
    <test name="testng from testlink to hudson return TAP report" preserve-order="true">
    		<classes>
   		    <class name="com.webs.testlink.automationsample.SampleTestClass"/>
+  		    <class name="com.webs.testlink.automationsample.SampleTestFailure1"/>
+  		    <class name="com.webs.testlink.automationsample.SampleTestFailure2"/>
+  		    <class name="com.webs.testlink.automationsample.SampleTestPass1"/>
+  		    <class name="com.webs.testlink.automationsample.SampleTestPass2"/>
  		</classes>
  	 </test> 	
 </suite>
